@@ -8,16 +8,12 @@ public class Persona {
     private String documento;
     private List<Perro> perrosAdoptados;
 
-    public Persona(String nombre, String apellido, int edad, String documento, List<Perro> perrosAdoptados) {
+    public Persona(String nombre, String apellido, int edad, String documento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.documento = documento;
         this.perrosAdoptados = new ArrayList<>();
-    }
-
-    public Persona(String nombre, String apellido, int edad, String documento) {
-
     }
 
     public String getDocumento() {
@@ -46,12 +42,11 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", documento='" + documento + '\'' +
-                ", perrosAdoptados=" + perrosAdoptados +
-                '}';
+        String resultado = nombre + " " + apellido + ", Edad: " + edad + ", Documento: " + documento + "\nPerros adoptados:\n";
+        for (Perro p : perrosAdoptados) {
+            resultado += "- " + p + "\n";
+        }
+        return resultado;
     }
 }
+
